@@ -9,7 +9,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("1.Добавление записи (дополнительно запрашивается имя, телефон и e-mail)");
-            System.out.println ( "2. Добавление записи (дополнительно запрашивается имя, телефон и e-mail)");
+            System.out.println ( "2. Добавление записи для поиска");
             System.out.println("3. Вывод всех записей");
             System.out.println("4.Удаление записи (дополнительно запрашивается индекс записи для удаления)");
             System.out.println("5. Изменение записи (дополнительно запрашивается индекс изменяемой записи, новые имя, телефон и e-mail)");
@@ -27,17 +27,23 @@ public class Main {
                     bookId.add(new Adress(name, phone, email));
                     break;
                 case 2:
-
+                    System.out.println("Введите для поиска");
+                    String search = sc.next();
+                    int[] found = bookId.find(search);
+                    for (int i = 0; i < found.length; i++) {
+                        int index = found[i];
+                        System.out.println(bookId.get(index));
+                    }
                     //int[] find(String name);
                     break;
                 case 3:
                     bookId.print();
                     break;
                 case 4:
+                    System.out.println("Введите индекс");
+                    int indexDelete = sc.nextInt();
+                    bookId.delete(indexDelete);
                     break;
-                case 5:
-                    break;
-
             }
         }
     }
