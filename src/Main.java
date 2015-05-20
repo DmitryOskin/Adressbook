@@ -40,9 +40,20 @@ public class Main {
                     bookId.print();
                     break;
                 case 4:
-                    System.out.println("Введите индекс");
+                    System.out.println("Удаление записи");
                     int indexDelete = sc.nextInt();
                     bookId.delete(indexDelete);
+                    break;
+                case 5:
+                    System.out.println("Изменение записи, введите индекс");
+                    int indexEdit = sc.nextInt();
+                        System.out.println("Введите имя");
+                        String newname = sc.next();
+                        System.out.println("Введите телефон");
+                        String newphone = sc.next();
+                        System.out.println("Введите e-mail)");
+                        String newemail = sc.next();
+                    bookId.edit(indexEdit, new Adress(newname, newphone, newemail));
                     break;
             }
         }

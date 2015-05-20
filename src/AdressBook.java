@@ -46,5 +46,8 @@ public class AdressBook {
         book[count - 1] = null;
         count--;
     }
+    public void edit (int index, Adress a) {
+        book[index] = a;
+    }
 }
 
